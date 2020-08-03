@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import BookCard from "../components/BookCard";
+// import CardBtn from "../CardBtn";
+
 import SearchForm from "../components/SearchForm";
+// import Card from "react-bootstrap/esm/Card";
 // import SortByCity from "../components/SortByCity";
 class Discover extends Component {
   state = {
@@ -24,6 +27,18 @@ queryForBooks= (search) => {
       )
       .catch(err => console.log(err));
   };
+
+// createPosts= (id) => {
+//         API.createPosts(id)
+//     //   
+//     //       .then(res =>
+//     //     // {console.log(res.data)}
+//     // //         this.setState({
+//     // //     savedbookData: res.data
+//     // //         })
+//     //       )
+//     //       .catch(err => console.log(err));
+//       };
 
 searchByName= (event) => {
     event.preventDefault();
@@ -62,7 +77,8 @@ console.log(bookName)
       <div>
         <SearchForm handleFormSubmit={this.searchByName} handleInputChange={this.handleInputChange} />
 {/*         <SortByCity handleFormSubmit={this.sortByLocation}   /> */}
-        <BookCard bookData={this.state.bookData}  />
+        <BookCard bookData={this.state.bookData} ></BookCard>
+
        
       </div>  
     );

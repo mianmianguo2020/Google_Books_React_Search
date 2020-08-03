@@ -1,37 +1,30 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import BookCard from "./BookCard";
-import SearchForm from "./SearchForm";
+import SavedBookCard from "./SavedBookCard";
 
 class SavedBook extends Component {
   state = {
-    bookData: [],
+    savedbookData: [],
 //     search: "google",
   };
 
-  componentDidMount(search) {
-    this.queryForBooks(search);
-  }
+//   componentDidMount(search) {
+//     this.queryForBooks(search);
+//   }
 
-queryForBooks= (search) => {
-    API.queryForBooks(search)
+getPosts= () => {
+    API.getPosts()
   
       .then(res =>
-    // {console.log(res.data.items)}
+    // {console.log(res.data)}
         this.setState({
-        bookData: res.data.items
+    savedbookData: res.data
         })
       )
       .catch(err => console.log(err));
   };
 
-searchByName= (event) => {
-    event.preventDefault();
-    const bookName = event.target.name.value;
-console.log(bookName)
-    this.setState({search:bookName})
-    
-  }
+
 //   sortByLocation = (event) => {
 //     event.preventDefault();
 //     const sortParams = event.target.value;
@@ -56,13 +49,13 @@ console.log(bookName)
     event.preventDefault();
   }
   render() {
-            this.queryForBooks(this.state.search);
-
+        //     this.queryForBooks(this.state.search);
+        this.getPosts()
     return (
       <div>
-        <SearchForm handleFormSubmit={this.searchByName} handleInputChange={this.handleInputChange} />
+{/*         <SearchForm handleFormSubmit={this.searchByName} handleInputChange={this.handleInputChange} /> */}
 {/*         <SortByCity handleFormSubmit={this.sortByLocation}   /> */}
-        <BookCard bookData={this.state.bookData}  />
+        <SavedBookCard savedbookData={this.state.savedbookData}  />
        
       </div>  
     );

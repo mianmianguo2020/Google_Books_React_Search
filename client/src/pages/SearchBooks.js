@@ -1,5 +1,4 @@
 import React from "react";
-// import { Header } from "react-router-dom"
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Discover from "./Discover";

@@ -8,7 +8,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googleBook");
 const bookSeed = [
   {
     title: "Hello World",
-    id: "1234",
+    id: "1",
     author: "admin",
     Intro:
       "Welcome to your first post! To create posts create a title and body. Don't forget to include your screen name!",
@@ -17,7 +17,7 @@ const bookSeed = [
   },
   {
     title: "The Second Post",
-    id: "1234",
+    id: "2",
     author: "admin",
     Intro:
       "Welcome to your first post! To create posts create a title and body. Don't forget to include your screen name!",
@@ -26,7 +26,7 @@ const bookSeed = [
   },
   {
     title: "Another One",
-    id: "1234",
+    id: "3",
     author: "admin",
     Intro:
       "Welcome to your first post! To create posts create a title and body. Don't forget to include your screen name!",

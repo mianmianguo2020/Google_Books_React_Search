@@ -23,7 +23,8 @@ function SearchBooks(props) {
                         subtitle: book.volumeInfo.subtitle,
                         description: book.volumeInfo.description,
                         authors: authors,
-                        imageURL: book.volumeInfo.imageLinks.smallThumbnail
+                        imageURL: book.volumeInfo.imageLinks.smallThumbnail,
+                        bookURL: book.accessInfo.webReaderLink
                     }
                 })
 
@@ -89,6 +90,7 @@ function BookDetail(props) {
         API.deletePosts(book.bookId);
     }
 
+
     const renderSaveButton = () => <button onClick={handleSave}>Save</button>
     const renderDeleteButton = () => <button onClick={handleDelete}>Delete</button>
     const secondButton = props.fromSaved ? renderDeleteButton() : renderSaveButton()
@@ -100,9 +102,11 @@ function BookDetail(props) {
                     <div>{book.subtitle}</div>
                     <div>{book.authors ? `Written by ${book.authors}` : null}</div>
                     <div>{book.bookId}</div>
+                    {/* <div>{book.bookURL}</div> */}
+                    
                 </div>
                 <div>
-                    <button>View</button>
+                    <a target="_blank" href={book.bookURL} ><button>View</button></a> 
                     {secondButton}
                 </div>
             </div>
